@@ -4,6 +4,7 @@ import pe.edu.vallegrande.project.model.Customer;
 import pe.edu.vallegrande.project.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -44,6 +45,11 @@ public class CustomerRest {
     @PutMapping("/update")
     public Customer update(@RequestBody Customer customer) {
         return customerService.update(customer);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable Long id) {
+        customerService.delete(id);
     }
 
 }
